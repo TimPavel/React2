@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework 1-3</title>
+</head>
+<body>
+<script>
+    class Human {
+      constructor(name, age, dateOfBirth) {
+        this.name = (typeof name == 'string' ? name : 'Ошибка при вводе name');
+        this.age = (typeof age == 'number' ? age : 'Ошибка при вводе age');
+        this.dateOfBirth = (typeof dateOfBirth == 'string' ? dateOfBirth : 'Ошибка при вводе dateOfBirth');
+      }
+
+      displayInfo() {
+        return `Name: ${this.name},
+          Age:${this.age},
+          Date-Of-Birth: ${this.dateOfBirth}`;
+      }
+
+    }
+
+    class Employee extends Human {
+      constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth);
+        this.salary = (typeof salary == 'number' ? salary : 'Ошибка при вводе salary');
+        this.department = (typeof department == 'string' ? department : 'Ошибка при вводе department');
+      }
+
+      displayInfo() {
+         return `${super.displayInfo()},
+           Salary: ${this.salary},
+           Department: ${this.department}`;
+      }
+
+    }
+
+    class Developer extends Employee {
+      constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth, salary, department);
+        this.manager = '';
+      }
+
+      changeManager(manager) {
+        this.manager = manager;
+      }
+      
+    }
+
+    class Manager extends Employee {
+      constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth, salary, department);
+        this.developers = [];
+      }
+
+      addDeveloper(developer) {
+        this.developers.push(developer);
+        console.log(`${developer} добавлен в список developers`);
+      }
+
+      removeDeveloper(developer) {
+        for (let i = 0; i < this.developers.length; i++) {
+
+          if(this.developers[i] === developer) {
+            this.developers.splice(i, 1);
+            console.log(`${developer} удален из списка developers`);
+          }
+        }
+      }
+    }
+
+</script>
+</body>
+</html>
