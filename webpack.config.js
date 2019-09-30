@@ -24,7 +24,6 @@ module.exports = {
           'style-loader',
           MiniCssExtractLoader.loader,
           'css-loader',
-          'sass-loader',
         ]
       },
     ],
