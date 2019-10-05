@@ -25,6 +25,12 @@ export class Layout extends Component {
           <MenuItem href="/users" active={ this.isActive("/users") }>
             Пользователи
           </MenuItem>
+          <MenuItem href="/posts" active={ this.isActive("/posts") }>
+            Посты
+          </MenuItem>
+          <MenuItem href="/comments" active={ this.isActive("/comments") }>
+            Комментарии
+          </MenuItem>
         </Menu>
         <div className="container">
           <div className="row">
@@ -33,8 +39,11 @@ export class Layout extends Component {
             </div>
           </div>
         </div>
-        <footer className="card-footer">
-          &copy; 2019
+        <footer className="card-footer navbar-fixed-bottom row-fluid">
+          <div className="container">
+            &copy; 2019
+          </div>
+
         </footer>
       </>
     );
