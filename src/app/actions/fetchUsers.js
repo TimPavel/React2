@@ -7,13 +7,7 @@ export function fetchUsers() {
 
     axios.get('http://jsonplaceholder.typicode.com/users')
       .then((response) => {
-        // console.log(response.data);
-
-        // let users = response.data.map((user) => {
-        //   return user;
-        // });
-        //
-        // // console.log(users);
+       
         dispatch({type: 'FETCH_USERS', payload: response.data})
       });
 
